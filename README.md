@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, add a `.env.local` with `NASA_API_KEY=<API_KEY>` and then run the development server:
 
 ```bash
 npm run dev
