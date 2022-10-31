@@ -21,9 +21,13 @@ To learn more about Next.js, take a look at the following resources:
 
 ## Bugs / Limitations
 
-No serious bugs however the date input will only cause a refetch if it is changed which is annoying if you are within the 'random' screen and want to go back to the current dates APOD. It is also awkward that the fetch only happens on close of the modal and there is no cancel.
+The one serious limitation is the ability to render video/yutube thumbnails. Depending on the complete list of supported types, I would add another component to show a thumbnail for these types of media.
+
+In addition the date input will only cause a refetch if it is changed which is annoying if you are within the 'random' screen and want to go back to the current dates APOD. It is also awkward that the fetch only happens on close of the modal and there is no cancel.
 
 I would handle this by adding a submit button to the modal in the future and removing the fetch on background click/close of the modal.
+
+For styling, I did not focus too much on making things look pretty as this could go any number of directions but formatting the info screen would be a freat place to start.
 
 ## Future work
 
