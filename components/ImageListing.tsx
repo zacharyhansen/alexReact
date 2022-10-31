@@ -27,6 +27,7 @@ const ImageListing: FunctionComponent<IImageListingProps> = ({ items }) => {
         >
           <InfoPopper>
             {Object.keys(items[0]).map((field) => (
+              // @ts-ignore
               <InfoDisplay key={field} title={field} info={items[0][field]} />
             ))}
           </InfoPopper>

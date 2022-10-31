@@ -31,4 +31,4 @@ I would integrate the information of the image into each img render so that on h
 
 I could also allow for users to set the number of random photos they desire and be able to select one to full screen it.
 
-The API also supports date ranges so this could be added to the search functionality
+The API also supports date ranges so this could be added to the search functionality.
