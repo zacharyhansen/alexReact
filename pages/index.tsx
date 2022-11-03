@@ -1,31 +1,38 @@
 import styles from "../styles/Home.module.css";
 import { Fragment, useEffect, useState } from "react";
-import { IAPODQueryParams, IAPODResponse } from "../models/apiModels";
-import { getAPODDAL } from "../apodDAL";
-import { Box } from "@mui/material";
-import moment from "moment";
+import Item from "../components/Item";
+
+// Add delete to each item
+// Add a form to create a new item
 
 const Home = () => {
-  const [response, setResponse] = useState<IAPODResponse[]>();
-  const [date, setDate] = useState<moment.Moment>(moment());
+  const [items, setItems] = useState(["Coffee", "Tea", "Milk"]);
 
-  const getAPOD = (params: IAPODQueryParams) => {
-    setResponse(undefined);
-    getAPODDAL<IAPODResponse>("/api/nasa/apod", params).then((res) => {
-      setResponse(res);
-    });
+  const handleMove = (position: number, move: number) => {
+    console.log("position: ", position);
+    if (position + move < 0 || position + move >= items.length) {
+      return;
+    }
+    const newArray = items.slice();
+    const tempItem = newArray[position + move];
+    newArray[position + move] = newArray[position];
+    newArray[position] = tempItem;
+    setItems(newArray);
   };
-
-  useEffect(() => getAPOD({ date: date.format("YYYY-MM-DD") }), [date]);
 
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        {!response ? (
-          <text>loading... implement a nice loader</text>
-        ) : (
-          <Fragment>{JSON.stringify(response)}</Fragment>
-        )}
+        <ol>
+          {items.map((itemInfo, index) => (
+            <Item
+              key={itemInfo}
+              index={index}
+              item={itemInfo}
+              onMoveUp={handleMove}
+            />
+          ))}
+        </ol>
       </main>
     </div>
   );
